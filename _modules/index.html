@@ -1,46 +1,37 @@
+<!DOCTYPE html>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" data-content_root="../">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-    <title>CAPSUL &mdash; CAPSUL - Collaborative Analysis Platform: Simple, Unifying, Lean</title>
+    <title>CAPSUL &#8212; CAPSUL - Chain algorithm in pipelines and execute in many contexts</title>
   <!-- htmltitle is before nature.css - we use this hack to load bootstrap first -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../_static/css/bootstrap.min.css" media="screen" />
   <link rel="stylesheet" href="../_static/css/bootstrap-responsive.css"/>
+  <link rel="icon" href="../_static/capsul_logo.svg"/>
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=f0b81668" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
     
-    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script src="../_static/documentation_options.js?v=4d935f96"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '0.0.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="CAPSUL - Collaborative Analysis Platform: Simple, Unifying, Lean" href="../index.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+  <!-- sidebar -->
   
-   
-       <script type="text/javascript" src="../_static/sidebar.js"></script>
    
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="../_static/js/bootstrap.min.js" type="text/javascript"></script>
-  <!-- <link rel="canonical" href="https://bioproj.extra.cea.fr/redmine/projects/nsap/_modules/index.html" /> -->
+  <script src="../_static/js/bootstrap.min.js" type="application/javascript"></script>
 
-  <script type="text/javascript">
+  <script type="application/javascript">
     $("div.buttonNext, div.buttonPrevious").hover(
        function () {
            $(this).css('background-color', '#FF9C34');
@@ -54,126 +45,168 @@
     sidebarbutton.css({'height': '900px'});
   </script>
 
-  </head>
-  <body>
-
-<div class="header-wrapper">
-  <div class="header">
-    <p class="logo">
-      <a href="../index.html">
-        <img src="../_static/capsul.png" alt="Logo"/>
-      </a>
-    </p><div class="navbar">
+  <div class="header" style="display: inline; width: 80%; margin-left:10%;">
+    <a href="../index.html">
+    <img src="../_static/capsul_logo.svg" alt="Capsul logo" style="display: inline; height:4em;"/>
+    </a >
+    <div class="navbar" style="display: inline;">
       <ul>
         <li><a href="../index.html">Home</a></li>
         <li><a href="../installation.html">Installation</a></li>
         <li class="btn-li">
           <div class="btn-group">
-		    <a href="../documentation.html">Documentation</a>
-		    <a class="btn dropdown-toggle" data-toggle="dropdown">
-		      <span class="caret"></span>
-		    </a>
-		    <ul class="dropdown-menu">
-	          <li class="link-title">CAPSUL</li>
-			  <li><a href="../user_guide_tree/index.html">User guide</a></li>
-			  <li><a href="../api_tree/index.html">API</a></li>
-			  <li><a href="../gui_tree/index.html">GUI</a></li>
-			  <li class="divider"></li>
-		      <li><a href="../developer_tree/index.html">Development</a></li>
-		    </ul>
-		  </div>
+            <a href="../documentation.html">Documentation</a>
+            <a class="btn dropdown-toggle" data-toggle="dropdown">
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="link-title">CAPSUL</li>
+              <li><a href="../user_guide_tree/index.html">User guide</a></li>
+              <li><a href="../api/index.html">API</a></li>
+            </ul>
+          </div>
         </li>
-        <li><a href="http://neurospin-wiki.org/">NeuroSpin Wiki</a></li>
+        <li>
+          <!-- form action="search.html" method="get" style="display: inline-block;"></form>
+            <input type="text" class="search-header" name="q" placeholder="search documentation..." value=""></input>
+            <button type="submit" >search</button>
+          </form -->
+          <form class="search_box" method="get" action="http://www.google.com/search" style="display: inline-block;">
+            <input class="search-header" type="text" name="q" placeholder="search documentation..." />
+            <input class="submit" type="image" src="../_static/find_read.png" value="Search" />
+            <input type="hidden" name="sitesearch" value="brainvisa.info/capsul" />
+          </form>
+        </li>
       </ul>
-    </div> <!-- end navbar --></div>
-</div>
+    </div> <!-- end navbar -->
+  </div>
 
 
-<div class="content-wrapper">
-    <div class="sphinxsidebar">
-      <div class="sphinxsidebarwrapper">
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CAPSUL</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">CAPSUL</a></li> 
+      </ul>
+    </div>  
 
-        <!-- info setup -->
-          <p class="doc-version">
-           This documentation is for CAPSUL <strong>version 0.0.1</strong>
-          </p>
-        <p class="citing">
-          If you use the software, please do not esitate to 
-          <a &mdash; <a href="https://bioproj.extra.cea.fr/redmine/projects/capsul/">
-          Report a Bug</a>.
-        </p>
-        <!-- <form action="/scripts/nsap-src-message.php" method="post">
-          <textarea rows="4" name="comments" style="width:175px">Enter here your comments</textarea>
-          <center>
-           <input type="submit" value="Send">
-          </center>
-        </form> -->
-
-      <!-- toc tree -->
-      
-
-      </div>
-    </div>
-  
-
-  <div class="content">
-      
+    <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <h1>All modules for which code is available</h1>
-<ul><li><a href="capsul/pipeline/pipeline.html">capsul.pipeline.pipeline</a></li>
-<li><a href="capsul/pipeline/pipeline_iterative.html">capsul.pipeline.pipeline_iterative</a></li>
+<ul><li><a href="PyQt5/QtCore.html">PyQt5.QtCore</a></li>
+<li><a href="capsul/attributes/attributes_factory.html">capsul.attributes.attributes_factory</a></li>
+<li><a href="capsul/attributes/attributes_schema.html">capsul.attributes.attributes_schema</a></li>
+<li><a href="capsul/attributes/completion_engine.html">capsul.attributes.completion_engine</a></li>
+<li><a href="capsul/attributes/completion_engine_factory.html">capsul.attributes.completion_engine_factory</a></li>
+<li><a href="capsul/attributes/completion_engine_iteration.html">capsul.attributes.completion_engine_iteration</a></li>
+<li><a href="capsul/attributes/fom_completion_engine.html">capsul.attributes.fom_completion_engine</a></li>
+<li><a href="capsul/engine.html">capsul.engine</a></li>
+<ul><li><a href="capsul/engine/database.html">capsul.engine.database</a></li>
+<li><a href="capsul/engine/database_json.html">capsul.engine.database_json</a></li>
+<li><a href="capsul/engine/database_populse.html">capsul.engine.database_populse</a></li>
+<li><a href="capsul/engine/module/attributes.html">capsul.engine.module.attributes</a></li>
+<li><a href="capsul/engine/module/axon.html">capsul.engine.module.axon</a></li>
+<li><a href="capsul/engine/module/fom.html">capsul.engine.module.fom</a></li>
+<li><a href="capsul/engine/module/fsl.html">capsul.engine.module.fsl</a></li>
+<li><a href="capsul/engine/module/matlab.html">capsul.engine.module.matlab</a></li>
+<li><a href="capsul/engine/module/python.html">capsul.engine.module.python</a></li>
+<li><a href="capsul/engine/module/spm.html">capsul.engine.module.spm</a></li>
+<li><a href="capsul/engine/run.html">capsul.engine.run</a></li>
+<li><a href="capsul/engine/settings.html">capsul.engine.settings</a></li>
+</ul><li><a href="capsul/in_context/fsl.html">capsul.in_context.fsl</a></li>
+<li><a href="capsul/in_context/spm.html">capsul.in_context.spm</a></li>
+<li><a href="capsul/pipeline/custom_nodes/cv_node.html">capsul.pipeline.custom_nodes.cv_node</a></li>
+<li><a href="capsul/pipeline/custom_nodes/loo_node.html">capsul.pipeline.custom_nodes.loo_node</a></li>
+<li><a href="capsul/pipeline/custom_nodes/map_node.html">capsul.pipeline.custom_nodes.map_node</a></li>
+<li><a href="capsul/pipeline/custom_nodes/reduce_node.html">capsul.pipeline.custom_nodes.reduce_node</a></li>
+<li><a href="capsul/pipeline/custom_nodes/strcat_node.html">capsul.pipeline.custom_nodes.strcat_node</a></li>
+<li><a href="capsul/pipeline/custom_nodes/strconv.html">capsul.pipeline.custom_nodes.strconv</a></li>
+<li><a href="capsul/pipeline/pipeline.html">capsul.pipeline.pipeline</a></li>
+<li><a href="capsul/pipeline/pipeline_construction.html">capsul.pipeline.pipeline_construction</a></li>
 <li><a href="capsul/pipeline/pipeline_nodes.html">capsul.pipeline.pipeline_nodes</a></li>
 <li><a href="capsul/pipeline/pipeline_tools.html">capsul.pipeline.pipeline_tools</a></li>
 <li><a href="capsul/pipeline/pipeline_workflow.html">capsul.pipeline.pipeline_workflow</a></li>
+<li><a href="capsul/pipeline/process_iteration.html">capsul.pipeline.process_iteration</a></li>
+<li><a href="capsul/pipeline/python_export.html">capsul.pipeline.python_export</a></li>
 <li><a href="capsul/pipeline/topological_sort.html">capsul.pipeline.topological_sort</a></li>
-<li><a href="capsul/process/loader.html">capsul.process.loader</a></li>
+<li><a href="capsul/pipeline/xml.html">capsul.pipeline.xml</a></li>
 <li><a href="capsul/process/nipype_process.html">capsul.process.nipype_process</a></li>
 <li><a href="capsul/process/process.html">capsul.process.process</a></li>
-<li><a href="capsul/process/process_with_fom.html">capsul.process.process_with_fom</a></li>
-<li><a href="capsul/qt_apps/main_window.html">capsul.qt_apps.main_window</a></li>
-<li><a href="capsul/qt_apps/pipeline_viewer_app.html">capsul.qt_apps.pipeline_viewer_app</a></li>
+<li><a href="capsul/process/runprocess.html">capsul.process.runprocess</a></li>
+<li><a href="capsul/process/xml.html">capsul.process.xml</a></li>
 <li><a href="capsul/qt_apps/utils/application.html">capsul.qt_apps.utils.application</a></li>
 <li><a href="capsul/qt_apps/utils/fill_treectrl.html">capsul.qt_apps.utils.fill_treectrl</a></li>
 <li><a href="capsul/qt_apps/utils/find_pipelines.html">capsul.qt_apps.utils.find_pipelines</a></li>
 <li><a href="capsul/qt_apps/utils/window.html">capsul.qt_apps.utils.window</a></li>
-<li><a href="capsul/qt_gui/controller_widget.html">capsul.qt_gui.controller_widget</a></li>
-<li><a href="capsul/qt_gui/controls/Bool.html">capsul.qt_gui.controls.Bool</a></li>
-<li><a href="capsul/qt_gui/controls/Directory.html">capsul.qt_gui.controls.Directory</a></li>
-<li><a href="capsul/qt_gui/controls/Enum.html">capsul.qt_gui.controls.Enum</a></li>
-<li><a href="capsul/qt_gui/controls/File.html">capsul.qt_gui.controls.File</a></li>
-<li><a href="capsul/qt_gui/controls/Float.html">capsul.qt_gui.controls.Float</a></li>
-<li><a href="capsul/qt_gui/controls/Int.html">capsul.qt_gui.controls.Int</a></li>
-<li><a href="capsul/qt_gui/controls/List.html">capsul.qt_gui.controls.List</a></li>
-<li><a href="capsul/qt_gui/controls/Str.html">capsul.qt_gui.controls.Str</a></li>
-<li><a href="capsul/qt_gui/widgets/full_pipeline_widgets.html">capsul.qt_gui.widgets.full_pipeline_widgets</a></li>
-<li><a href="capsul/qt_gui/widgets/workflow_widget.html">capsul.qt_gui.widgets.workflow_widget</a></li>
+<li><a href="capsul/qt_gui/board_widget.html">capsul.qt_gui.board_widget</a></li>
+<li><a href="capsul/qt_gui/widgets/activation_inspector.html">capsul.qt_gui.widgets.activation_inspector</a></li>
+<li><a href="capsul/qt_gui/widgets/attributed_process_widget.html">capsul.qt_gui.widgets.attributed_process_widget</a></li>
+<li><a href="capsul/qt_gui/widgets/links_debugger.html">capsul.qt_gui.widgets.links_debugger</a></li>
+<li><a href="capsul/qt_gui/widgets/pipeline_developer_view.html">capsul.qt_gui.widgets.pipeline_developer_view</a></li>
+<li><a href="capsul/qt_gui/widgets/pipeline_file_warning_widget.html">capsul.qt_gui.widgets.pipeline_file_warning_widget</a></li>
+<li><a href="capsul/qt_gui/widgets/pipeline_user_view.html">capsul.qt_gui.widgets.pipeline_user_view</a></li>
+<li><a href="capsul/qt_gui/widgets/viewer_widget.html">capsul.qt_gui.widgets.viewer_widget</a></li>
+<li><a href="capsul/sphinxext/layoutdocgen.html">capsul.sphinxext.layoutdocgen</a></li>
+<li><a href="capsul/sphinxext/load_pilots.html">capsul.sphinxext.load_pilots</a></li>
+<li><a href="capsul/sphinxext/pipelinedocgen.html">capsul.sphinxext.pipelinedocgen</a></li>
+<li><a href="capsul/sphinxext/usecasesdocgen.html">capsul.sphinxext.usecasesdocgen</a></li>
+<li><a href="capsul/study_config/config_modules/attributes_config.html">capsul.study_config.config_modules.attributes_config</a></li>
 <li><a href="capsul/study_config/config_modules/brainvisa_config.html">capsul.study_config.config_modules.brainvisa_config</a></li>
 <li><a href="capsul/study_config/config_modules/fom_config.html">capsul.study_config.config_modules.fom_config</a></li>
 <li><a href="capsul/study_config/config_modules/freesurfer_config.html">capsul.study_config.config_modules.freesurfer_config</a></li>
 <li><a href="capsul/study_config/config_modules/fsl_config.html">capsul.study_config.config_modules.fsl_config</a></li>
 <li><a href="capsul/study_config/config_modules/matlab_config.html">capsul.study_config.config_modules.matlab_config</a></li>
 <li><a href="capsul/study_config/config_modules/nipype_config.html">capsul.study_config.config_modules.nipype_config</a></li>
+<li><a href="capsul/study_config/config_modules/smartcaching_config.html">capsul.study_config.config_modules.smartcaching_config</a></li>
+<li><a href="capsul/study_config/config_modules/somaworkflow_config.html">capsul.study_config.config_modules.somaworkflow_config</a></li>
 <li><a href="capsul/study_config/config_modules/spm_config.html">capsul.study_config.config_modules.spm_config</a></li>
 <li><a href="capsul/study_config/config_utils.html">capsul.study_config.config_utils</a></li>
 <li><a href="capsul/study_config/memory.html">capsul.study_config.memory</a></li>
+<li><a href="capsul/study_config/process_instance.html">capsul.study_config.process_instance</a></li>
 <li><a href="capsul/study_config/run.html">capsul.study_config.run</a></li>
 <li><a href="capsul/study_config/study_config.html">capsul.study_config.study_config</a></li>
+<li><a href="capsul/subprocess/fsl.html">capsul.subprocess.fsl</a></li>
+<li><a href="capsul/subprocess/spm.html">capsul.subprocess.spm</a></li>
+<li><a href="capsul/utils/finder.html">capsul.utils.finder</a></li>
+<li><a href="capsul/utils/version_utils.html">capsul.utils.version_utils</a></li>
 </ul>
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
-    <div class="clearer">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        </div>
+      </div>
+      <div class="clearer"></div>
     </div>
-  </div>
-  
-</div>
-
-<div class="footer">
-    &copy; 2013, CAPSUL developers &lt;antoine.grigis@cea.fr&gt;.
-</div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CAPSUL</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">CAPSUL</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2023, Populse team &lt;support@brainvisa.info&gt;.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
   </body>
 </html>

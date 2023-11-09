@@ -1,9 +1,0 @@
-:orphan:
-
-capsul.qt_apps.utils.find_pipelines.find_pipelines
-==================================================
-
-.. currentmodule:: capsul.qt_apps.utils.find_pipelines
-
-.. autofunction:: find_pipelines
-

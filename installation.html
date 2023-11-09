@@ -1,48 +1,40 @@
+<!DOCTYPE html>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" data-content_root="./">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   
-    <title>CAPSUL &mdash; CAPSUL - Collaborative Analysis Platform: Simple, Unifying, Lean</title>
+    <title>CAPSUL &#8212; CAPSUL - Chain algorithm in pipelines and execute in many contexts</title>
   <!-- htmltitle is before nature.css - we use this hack to load bootstrap first -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="_static/css/bootstrap.min.css" media="screen" />
   <link rel="stylesheet" href="_static/css/bootstrap-responsive.css"/>
+  <link rel="icon" href="_static/capsul_logo.svg"/>
 
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=f0b81668" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=eafc0fe6" />
     
-    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script src="_static/documentation_options.js?v=4d935f96"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '0.0.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="CAPSUL - Collaborative Analysis Platform: Simple, Unifying, Lean" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Documentation of the CAPSUL tools" href="documentation.html" />
     <link rel="prev" title="CAPSUL" href="index.html" />
+
+  <!-- sidebar -->
   
-   
-       <script type="text/javascript" src="_static/sidebar.js"></script>
    
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="_static/js/bootstrap.min.js" type="text/javascript"></script>
-  <!-- <link rel="canonical" href="https://bioproj.extra.cea.fr/redmine/projects/nsap/installation.html" /> -->
+  <script src="_static/js/bootstrap.min.js" type="application/javascript"></script>
 
-  <script type="text/javascript">
+  <script type="application/javascript">
     $("div.buttonNext, div.buttonPrevious").hover(
        function () {
            $(this).css('background-color', '#FF9C34');
@@ -56,156 +48,202 @@
     sidebarbutton.css({'height': '900px'});
   </script>
 
-  </head>
-  <body>
-
-<div class="header-wrapper">
-  <div class="header">
-    <p class="logo">
-      <a href="index.html">
-        <img src="_static/capsul.png" alt="Logo"/>
-      </a>
-    </p><div class="navbar">
+  <div class="header" style="display: inline; width: 80%; margin-left:10%;">
+    <a href="index.html">
+    <img src="_static/capsul_logo.svg" alt="Capsul logo" style="display: inline; height:4em;"/>
+    </a >
+    <div class="navbar" style="display: inline;">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="#">Installation</a></li>
         <li class="btn-li">
           <div class="btn-group">
-		    <a href="documentation.html">Documentation</a>
-		    <a class="btn dropdown-toggle" data-toggle="dropdown">
-		      <span class="caret"></span>
-		    </a>
-		    <ul class="dropdown-menu">
-	          <li class="link-title">CAPSUL</li>
-			  <li><a href="user_guide_tree/index.html">User guide</a></li>
-			  <li><a href="api_tree/index.html">API</a></li>
-			  <li><a href="gui_tree/index.html">GUI</a></li>
-			  <li class="divider"></li>
-		      <li><a href="developer_tree/index.html">Development</a></li>
-		    </ul>
-		  </div>
+            <a href="documentation.html">Documentation</a>
+            <a class="btn dropdown-toggle" data-toggle="dropdown">
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="link-title">CAPSUL</li>
+              <li><a href="user_guide_tree/index.html">User guide</a></li>
+              <li><a href="api/index.html">API</a></li>
+            </ul>
+          </div>
         </li>
-        <li><a href="http://neurospin-wiki.org/">NeuroSpin Wiki</a></li>
+        <li>
+          <!-- form action="search.html" method="get" style="display: inline-block;"></form>
+            <input type="text" class="search-header" name="q" placeholder="search documentation..." value=""></input>
+            <button type="submit" >search</button>
+          </form -->
+          <form class="search_box" method="get" action="http://www.google.com/search" style="display: inline-block;">
+            <input class="search-header" type="text" name="q" placeholder="search documentation..." />
+            <input class="submit" type="image" src="_static/find_read.png" value="Search" />
+            <input type="hidden" name="sitesearch" value="brainvisa.info/capsul" />
+          </form>
+        </li>
       </ul>
-    </div> <!-- end navbar --></div>
-</div>
+    </div> <!-- end navbar -->
+  </div>
 
 
-<div class="content-wrapper">
-    <div class="sphinxsidebar">
-      <div class="sphinxsidebarwrapper">
-
-        <!-- info setup -->
-        <p class="citing">
-          If you use the software, please do not esitate to 
-          <a &mdash; <a href="https://bioproj.extra.cea.fr/redmine/projects/capsul/">
-          Report a Bug</a>.
-        </p>
-        <!-- <form action="/scripts/nsap-src-message.php" method="post">
-          <textarea rows="4" name="comments" style="width:175px">Enter here your comments</textarea>
-          <center>
-           <input type="submit" value="Send">
-          </center>
-        </form> -->
-
-      <!-- toc tree -->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
       <ul>
-<li><a class="reference internal" href="#">Installing <cite>CAPSUL</cite></a><ul>
-<li><a class="reference internal" href="#installing-a-stable-version">Installing a stable version</a></li>
-<li><a class="reference internal" href="#installing-the-current-version">Installing the current version</a><ul>
-<li><a class="reference internal" href="#install-the-python-package-with-pip">Install the python package with <em>pip</em></a></li>
-<li><a class="reference internal" href="#install-the-debian-package-with-dpkg">Install the debian package with <em>dpkg</em></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="documentation.html" title="Documentation of the CAPSUL tools"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="CAPSUL"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">CAPSUL</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">CAPSUL</a></li> 
+      </ul>
+    </div>  
 
-
-      </div>
-    </div>
-  
-
-  <div class="content">
-      
+    <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
-  <div class="section" id="installing-capsul">
-<span id="install-guid"></span><h1>Installing <cite>CAPSUL</cite><a class="headerlink" href="#installing-capsul" title="Permalink to this headline">¶</a></h1>
-<p>This tutorial will walk you through the process of intalling CAPSUL...</p>
-<blockquote>
-<div><ul class="simple">
-<li><a class="reference internal" href="#install-release"><em>Install an official release</em></a>. This
-is the best approach for users who want a stable version.</li>
-<li><a class="reference internal" href="#install-development"><em>Install the latest development version</em></a>. This is best for users who want to contribute
-to the project.</li>
-</ul>
-</div></blockquote>
-<div class="section" id="installing-a-stable-version">
-<span id="install-release"></span><h2>Installing a stable version<a class="headerlink" href="#installing-a-stable-version" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="installing-the-current-version">
-<span id="install-development"></span><h2>Installing the current version<a class="headerlink" href="#installing-the-current-version" title="Permalink to this headline">¶</a></h2>
-<p>Nightly build packages are available at:
-<a class="reference external" href="http://nsap.intra.cea.fr/resources/">http://nsap.intra.cea.fr/resources/</a></p>
-<div class="section" id="install-the-python-package-with-pip">
-<h3>Install the python package with <em>pip</em><a class="headerlink" href="#install-the-python-package-with-pip" title="Permalink to this headline">¶</a></h3>
-<dl class="docutils">
-<dt><strong>First find the package</strong></dt>
-<dd><ul class="first last simple">
-<li>Choose the desired package, for instance <cite>capsul-0.0.1.dev.tar.gz</cite>.</li>
-<li>You have now the full url of the nightly build package you want to
-install:
-url = <a class="reference external" href="http://nsap.intra.cea.fr/resources/capsul-0.0.1.dev.tar.gz">http://nsap.intra.cea.fr/resources/capsul-0.0.1.dev.tar.gz</a></li>
-</ul>
-</dd>
-</dl>
-<p><strong>Install the package without the root privilege</strong></p>
-<div class="highlight-python"><pre>&gt;&gt;&gt; pip install --user --verbose $url
-&gt;&gt;&gt; export PATH=$PATH:$HOME/.local/bin</pre>
-</div>
-<p><strong>Install the package with the root privilege</strong></p>
-<div class="highlight-python"><pre>&gt;&gt;&gt; pip install --verbose $url</pre>
-</div>
-<p><strong>When reinstalling locally the package first do</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pip</span> <span class="n">uninstall</span> <span class="n">capsul</span>
+  <section id="capsul-installation">
+<span id="install-guid"></span><h1>CAPSUL installation<a class="headerlink" href="#capsul-installation" title="Link to this heading">¶</a></h1>
+<section id="installing-with-brainvisa">
+<h2>Installing with BrainVISA<a class="headerlink" href="#installing-with-brainvisa" title="Link to this heading">¶</a></h2>
+<p>CAPSUL is the new pipelining system of the <a class="reference external" href="http://brainvisa.info">BrainVISA suite</a>. It can therefore be installed with <a class="reference external" href="http://brainvisa.info/web/download">BrainVISA installer</a>.</p>
+</section>
+<section id="installing-without-brainvisa">
+<h2>Installing without BrainVISA<a class="headerlink" href="#installing-without-brainvisa" title="Link to this heading">¶</a></h2>
+<section id="prerequisite">
+<h3>Prerequisite<a class="headerlink" href="#prerequisite" title="Link to this heading">¶</a></h3>
+<p>Installing Capsul on a brain new system requires that Python is installed (either Python 2 or Python 3) but also that some Python packages are installed. These dependencies are managed by <a class="reference external" href="https://en.wikipedia.org/wiki/Pip_%28package_manager%29">pip</a> or by <a class="reference external" href="https://stackoverflow.com/questions/1471994/what-is-setup-py">setup.py</a>. But one of the dependency (the <a class="reference external" href="http://code.enthought.com/projects/traits/">traits Python module</a>) requires some compilation during installation. Therefore, before installing Capsul is it necessary to install compilation packages as well as Python development package. In this document, we give the procedure for installation on a bare Debian based Linux distribution (it has been tested on Ubuntu 16.04).</p>
+<p><strong>Python 3 :</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-dev<span class="w"> </span>build-essential
 </pre></div>
 </div>
-</div>
-<div class="section" id="install-the-debian-package-with-dpkg">
-<h3>Install the debian package with <em>dpkg</em><a class="headerlink" href="#install-the-debian-package-with-dpkg" title="Permalink to this headline">¶</a></h3>
-<dl class="docutils">
-<dt><strong>First find the package</strong></dt>
-<dd><ul class="first last simple">
-<li>Choose the desired package, for instance <cite>capsul-0.0.1.dev-1_all.tar.gz</cite>.</li>
-<li>You have now the full url of the nightly build package you want to
-install:
-url = <a class="reference external" href="http://nsap.intra.cea.fr/resources/capsul-0.0.1.dev-1_all.tar.gz">http://nsap.intra.cea.fr/resources/capsul-0.0.1.dev-1_all.tar.gz</a></li>
-</ul>
-</dd>
-</dl>
-<p><strong>Install the package with the root privilege</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">dpkg</span> <span class="o">-</span><span class="n">i</span> <span class="n">python</span><span class="o">-</span><span class="n">capsul_0</span><span class="o">.</span><span class="mf">0.1</span><span class="o">-</span><span class="mi">1</span><span class="n">_all</span><span class="o">.</span><span class="n">deb</span>
+<p><strong>Python 2 :</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python-dev<span class="w"> </span>build-essential
 </pre></div>
 </div>
+<p>On the following commands, we use <code class="docutils literal notranslate"><span class="pre">python</span></code> command name indiferently for Python 2 and Python 3. For systems where Python 3 is not the default version, it may be necessary to use another command such as <code class="docutils literal notranslate"><span class="pre">python3</span></code>.</p>
+</section>
+<section id="install-system-wide">
+<h3>Install system-wide<a class="headerlink" href="#install-system-wide" title="Link to this heading">¶</a></h3>
+<p><strong>From PyPI</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python-pip<span class="w"> </span><span class="c1"># On Ubuntu 16.04, use python3-pip for Python 3</span>
+sudo<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>capsul<span class="w"> </span><span class="c1"># On Ubuntu 16.04, use pip3 for Python 3</span>
+</pre></div>
 </div>
+<p><strong>From source</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>git
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/populse/capsul.git<span class="w"> </span>/tmp/capsul
+<span class="nb">cd</span><span class="w"> </span>/tmp/capsul
+python<span class="w"> </span>setup.py<span class="w"> </span>install<span class="w"> </span><span class="c1"># On Ubuntu 16.04, use python3 for Python 3</span>
+<span class="nb">cd</span><span class="w"> </span>/tmp
+rm<span class="w"> </span>-r<span class="w"> </span>/tmp/capsul
+</pre></div>
 </div>
+</section>
+<section id="install-user-wide">
+<h3>Install user-wide<a class="headerlink" href="#install-user-wide" title="Link to this heading">¶</a></h3>
+<p><strong>From PyPI</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python-pip<span class="w"> </span><span class="c1"># On Ubuntu 16.04, use python3-pip for Python 3</span>
+pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>capsul<span class="w"> </span><span class="c1"># On Ubuntu 16.04, use pip3 for Python 3</span>
+</pre></div>
 </div>
+<p><strong>From source</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>git
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/populse/capsul.git<span class="w"> </span>/tmp/capsul
+<span class="nb">cd</span><span class="w"> </span>/tmp/capsul
+python<span class="w"> </span>setup.py<span class="w"> </span>install<span class="w"> </span>--user
+<span class="nb">cd</span><span class="w"> </span>/tmp
+rm<span class="w"> </span>-r<span class="w"> </span>/tmp/capsul
+</pre></div>
+</div>
+</section>
+<section id="install-with-virtualenv">
+<h3>Install with virtualenv<a class="headerlink" href="#install-with-virtualenv" title="Link to this heading">¶</a></h3>
+<p><strong>For Python 3</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-venv
+python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>/tmp/venv<span class="w"> </span><span class="c1"># Choose your installation directory instead of /tmp/venv</span>
+/tmp/venv/bin/pip<span class="w"> </span>install<span class="w"> </span>capsul
+</pre></div>
+</div>
+<p><strong>For Python 2</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python-virtualenv
+virtualenv<span class="w"> </span>/tmp/venv<span class="w"> </span><span class="c1"># Choose your installation directory instead of /tmp/venv</span>
+/tmp/venv/bin/pip<span class="w"> </span>install<span class="w"> </span>capsul
+</pre></div>
+</div>
+</section>
+</section>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
-    <div class="clearer">
-    </div>
-  </div>
-  
-</div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">CAPSUL installation</a><ul>
+<li><a class="reference internal" href="#installing-with-brainvisa">Installing with BrainVISA</a></li>
+<li><a class="reference internal" href="#installing-without-brainvisa">Installing without BrainVISA</a><ul>
+<li><a class="reference internal" href="#prerequisite">Prerequisite</a></li>
+<li><a class="reference internal" href="#install-system-wide">Install system-wide</a></li>
+<li><a class="reference internal" href="#install-user-wide">Install user-wide</a></li>
+<li><a class="reference internal" href="#install-with-virtualenv">Install with virtualenv</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
-<div class="footer">
-    &copy; 2013, CAPSUL developers &lt;antoine.grigis@cea.fr&gt;.
-</div>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="index.html"
+                          title="previous chapter">CAPSUL</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="documentation.html"
+                          title="next chapter">Documentation of the CAPSUL tools</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="documentation.html" title="Documentation of the CAPSUL tools"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="CAPSUL"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">CAPSUL</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">CAPSUL</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2023, Populse team &lt;support@brainvisa.info&gt;.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
   </body>
 </html>

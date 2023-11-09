@@ -1,9 +1,0 @@
-:orphan:
-
-capsul.process.loader.get_process_instance
-==========================================
-
-.. currentmodule:: capsul.process.loader
-
-.. autofunction:: get_process_instance
-

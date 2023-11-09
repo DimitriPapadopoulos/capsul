@@ -1,9 +1,0 @@
-:orphan:
-
-capsul.pipeline.pipeline_tools.remove_temporary_exports
-=======================================================
-
-.. currentmodule:: capsul.pipeline.pipeline_tools
-
-.. autofunction:: remove_temporary_exports
-

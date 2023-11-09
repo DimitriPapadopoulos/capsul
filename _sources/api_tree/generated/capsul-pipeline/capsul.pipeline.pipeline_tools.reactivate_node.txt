@@ -1,9 +1,0 @@
-:orphan:
-
-capsul.pipeline.pipeline_tools.reactivate_node
-==============================================
-
-.. currentmodule:: capsul.pipeline.pipeline_tools
-
-.. autofunction:: reactivate_node
-
