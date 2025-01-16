@@ -12,12 +12,12 @@
   <link rel="stylesheet" href="../../../_static/css/bootstrap-responsive.css"/>
   <link rel="icon" href="../../../_static/capsul_logo.svg"/>
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=f0b81668" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
     
-    <script src="../../../_static/documentation_options.js?v=4d935f96"></script>
-    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/documentation_options.js?v=983e91d6"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     
@@ -83,7 +83,7 @@
 
 
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -164,21 +164,25 @@
 
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">from</span> <span class="nn">capsul.api</span> <span class="kn">import</span> <span class="n">StudyConfig</span>
-<span class="kn">from</span> <span class="nn">capsul.api</span> <span class="kn">import</span> <span class="n">capsul_engine</span>
-<span class="kn">from</span> <span class="nn">capsul.api</span> <span class="kn">import</span> <span class="n">Pipeline</span>
-<span class="kn">from</span> <span class="nn">capsul.attributes.completion_engine</span> <span class="kn">import</span> <span class="n">ProcessCompletionEngine</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">re</span>
-<span class="kn">from</span> <span class="nn">optparse</span> <span class="kn">import</span> <span class="n">OptionParser</span><span class="p">,</span> <span class="n">OptionGroup</span>
-<span class="kn">from</span> <span class="nn">traits.api</span> <span class="kn">import</span> <span class="n">Undefined</span><span class="p">,</span> <span class="n">List</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">capsul.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">StudyConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">capsul.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">capsul_engine</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">capsul.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">capsul.attributes.completion_engine</span><span class="w"> </span><span class="kn">import</span> <span class="n">ProcessCompletionEngine</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os.path</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">osp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">optparse</span><span class="w"> </span><span class="kn">import</span> <span class="n">OptionParser</span><span class="p">,</span> <span class="n">OptionGroup</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">traits.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">Undefined</span><span class="p">,</span> <span class="n">List</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tempfile</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
 <span class="k">try</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">yaml</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
     <span class="n">yaml</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">six</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">six</span>
 
 <span class="c1"># Define the logger</span>
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
@@ -186,7 +190,7 @@
 
 <div class="viewcode-block" id="ProcessParamError">
 <a class="viewcode-back" href="../../../api/process.html#capsul.process.runprocess.ProcessParamError">[docs]</a>
-<span class="k">class</span> <span class="nc">ProcessParamError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ProcessParamError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39; Exception used in the ``runprocess`` module</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">pass</span></div>
@@ -195,16 +199,34 @@
 
 <div class="viewcode-block" id="set_process_param_from_str">
 <a class="viewcode-back" href="../../../api/process.html#capsul.process.runprocess.set_process_param_from_str">[docs]</a>
-<span class="k">def</span> <span class="nf">set_process_param_from_str</span><span class="p">(</span><span class="n">process</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">set_process_param_from_str</span><span class="p">(</span><span class="n">process</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Set a process parameter from a string representation.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="s1">&#39;.&#39;</span> <span class="ow">in</span> <span class="n">k</span><span class="p">:</span>
+        <span class="n">sub_node_name</span><span class="p">,</span> <span class="n">k2</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">sub_node</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">sub_node_name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">sub_node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">set_process_param_from_str</span><span class="p">(</span><span class="n">sub_node</span><span class="p">,</span> <span class="n">k2</span><span class="p">,</span> <span class="n">arg</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="n">sub_proc</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">sub_node</span><span class="p">,</span> <span class="s1">&#39;process&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">sub_proc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">set_process_param_from_str</span><span class="p">(</span><span class="n">sub_proc</span><span class="p">,</span> <span class="n">k2</span><span class="p">,</span> <span class="n">arg</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">process</span><span class="o">.</span><span class="n">trait</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">process</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+            <span class="c1"># print(&#39;set non-trait value:&#39;, process, k, repr(arg))</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="n">process</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">arg</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">process</span><span class="p">,</span> <span class="s1">&#39;pipeline_node&#39;</span><span class="p">)</span> \
+                <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">process</span><span class="o">.</span><span class="n">pipeline_node</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="n">process</span><span class="o">.</span><span class="n">pipeline_node</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">arg</span><span class="p">)</span>
+            <span class="k">return</span>
         <span class="k">raise</span> <span class="n">ProcessParamError</span><span class="p">(</span><span class="s2">&quot;Unknown parameter </span><span class="si">{0}</span><span class="s2"> for process </span><span class="si">{1}</span><span class="s2">&quot;</span>
                                 <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">process</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">evaluate</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">trait</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">trait_type</span><span class="o">.</span><span class="n">evaluate</span>
     <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
         <span class="n">evaluate</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;set_process_param_from_str:&#39;</span><span class="p">,</span> <span class="n">process</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="nb">repr</span><span class="p">(</span><span class="n">arg</span><span class="p">))</span>
+    <span class="c1"># print(&#39;set_process_param_from_str:&#39;, process, k, repr(arg))</span>
     <span class="k">if</span> <span class="n">evaluate</span><span class="p">:</span>
         <span class="n">arg</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
     <span class="nb">setattr</span><span class="p">(</span><span class="n">process</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">arg</span><span class="p">)</span>
@@ -217,7 +239,7 @@
 
 <div class="viewcode-block" id="get_process_with_params">
 <a class="viewcode-back" href="../../../api/process.html#capsul.process.runprocess.get_process_with_params">[docs]</a>
-<span class="k">def</span> <span class="nf">get_process_with_params</span><span class="p">(</span><span class="n">process_name</span><span class="p">,</span> <span class="n">study_config</span><span class="p">,</span> <span class="n">iterated_params</span><span class="o">=</span><span class="p">[],</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_process_with_params</span><span class="p">(</span><span class="n">process_name</span><span class="p">,</span> <span class="n">study_config</span><span class="p">,</span> <span class="n">iterated_params</span><span class="o">=</span><span class="p">[],</span>
                             <span class="n">attributes</span><span class="o">=</span><span class="p">{},</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39; Instantiate a process, or an iteration over processes, and fill in its</span>
 <span class="sd">    parameters.</span>
@@ -276,7 +298,7 @@
 
 <div class="viewcode-block" id="run_process_with_distribution">
 <a class="viewcode-back" href="../../../api/process.html#capsul.process.runprocess.run_process_with_distribution">[docs]</a>
-<span class="k">def</span> <span class="nf">run_process_with_distribution</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">run_process_with_distribution</span><span class="p">(</span>
         <span class="n">study_config</span><span class="p">,</span> <span class="n">process</span><span class="p">,</span> <span class="n">use_soma_workflow</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="n">resource_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rsa_key_pass</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">queue</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">input_file_processing</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">output_file_processing</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -335,9 +357,9 @@
 
         <span class="k">if</span> <span class="n">write_workflow_only</span><span class="p">:</span>
             <span class="c1"># Create soma workflow pipeline</span>
-            <span class="kn">from</span> <span class="nn">capsul.pipeline.pipeline_workflow</span> \
-                <span class="kn">import</span> <span class="nn">workflow_from_pipeline</span>
-            <span class="kn">import</span> <span class="nn">soma_workflow.client</span> <span class="k">as</span> <span class="nn">swclient</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">capsul.pipeline.pipeline_workflow</span> \
+                <span class="kn">import</span><span class="w"> </span><span class="nn">workflow_from_pipeline</span>
+            <span class="kn">import</span><span class="w"> </span><span class="nn">soma_workflow.client</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">swclient</span>
 
             <span class="n">workflow</span> <span class="o">=</span> <span class="n">workflow_from_pipeline</span><span class="p">(</span><span class="n">process</span><span class="p">)</span>
             <span class="n">swclient</span><span class="o">.</span><span class="n">Helper</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="n">write_workflow_only</span><span class="p">,</span> <span class="n">workflow</span><span class="p">)</span>
@@ -363,7 +385,7 @@
 
 
 
-<span class="k">def</span> <span class="nf">convert_commandline_parameter</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">convert_commandline_parameter</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="s1">&#39;[({&#39;</span> <span class="ow">or</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span> <span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="s1">&#39;True&#39;</span><span class="p">,</span> <span class="s1">&#39;False&#39;</span> <span class="p">)</span> <span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">res</span><span class="o">=</span><span class="nb">eval</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
@@ -377,7 +399,7 @@
 <span class="c1"># main</span>
 <div class="viewcode-block" id="main">
 <a class="viewcode-back" href="../../../api/process.html#capsul.process.runprocess.main">[docs]</a>
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39; Run the :mod:`capsul.process.runprocess` module as a commandline</span>
 <span class="sd">    &#39;&#39;&#39;</span>
 
@@ -405,6 +427,12 @@
 <span class="s1">        axon-runprocess capsul://capsul.engine.write_engine_config engine.json</span>
 
 <span class="s1">    Then the file ``engine.json`` will be OK.</span>
+<span class="s1">    Alternatively, using &quot;--config axon&quot; will do this for you internally.</span>
+
+<span class="s1">    It is possible to reach sub-process parameters in a pipeline by addressing</span>
+<span class="s1">    their node in the parent pipeline:</span>
+
+<span class="s1">    python -m capsul morphologist.capsul.morphologist Renorm.enabled=False</span>
 <span class="s1">    &#39;&#39;&#39;</span>
 
     <span class="c1"># Set up logging on stderr. This must be called before any logging takes</span>
@@ -418,9 +446,12 @@
         <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Processing configuration, database options&#39;</span><span class="p">)</span>
     <span class="n">group1</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s1">&#39;--studyconfig&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;studyconfig&#39;</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="s1">&#39;load StudyConfig configuration from the given file (JSON)&#39;</span><span class="p">)</span>
-    <span class="n">group1</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s1">&#39;--config&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;config&#39;</span><span class="p">,</span>
+    <span class="n">group1</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span>
+        <span class="s1">&#39;--config&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;config&#39;</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="s1">&#39;load Capsul engine configuration from the given file (JSON) &#39;</span>
-        <span class="s1">&#39;(CapsulEngine shape, not Studyconfig -- use --studyconfig otherwise)&#39;</span><span class="p">)</span>
+        <span class="s1">&#39;(CapsulEngine shape, not Studyconfig -- use --studyconfig &#39;</span>
+        <span class="s1">&#39;otherwise). Using &quot;--config axon&quot; will run the conversion process in &#39;</span>
+        <span class="s1">&#39;Axon and import the config.&#39;</span><span class="p">)</span>
     <span class="n">group1</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span> <span class="s1">&#39;--input&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;input_directory&#39;</span><span class="p">,</span>
                       <span class="n">help</span><span class="o">=</span><span class="s1">&#39;input data directory (if not specified in &#39;</span>
                       <span class="s1">&#39;studyconfig file). If not specified neither on the &#39;</span>
@@ -431,6 +462,34 @@
                       <span class="s1">&#39;studyconfig file). If not specified neither on the &#39;</span>
                       <span class="s1">&#39;commandline nor study configfile, taken as the same as &#39;</span>
                       <span class="s1">&#39;input.&#39;</span><span class="p">)</span>
+    <span class="n">group1</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s1">&#39;--if&#39;</span><span class="p">,</span> <span class="s1">&#39;--input-fom&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;input_fom&#39;</span><span class="p">,</span>
+                      <span class="n">default</span><span class="o">=</span><span class="s1">&#39;morphologist-bids-1.0&#39;</span><span class="p">,</span>
+                      <span class="n">help</span><span class="o">=</span><span class="s1">&#39;input FOM (File Organization Model). Decides &#39;</span>
+                      <span class="s1">&#39;which files and direrctories layout for the input &#39;</span>
+                      <span class="s1">&#39;data. Generally &quot;morphologist-bids-1.0&quot; or &#39;</span>
+                      <span class="s1">&#39;&quot;morphologist-auto-nonoverlap-1.0&quot;. Default: &#39;</span>
+                      <span class="s1">&#39;&quot;morphologist-bids-1.0&quot;&#39;</span><span class="p">)</span>
+    <span class="n">group1</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s1">&#39;--of&#39;</span><span class="p">,</span> <span class="s1">&#39;--output-fom&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;output_fom&#39;</span><span class="p">,</span>
+                      <span class="n">default</span><span class="o">=</span><span class="s1">&#39;morphologist-bids-1.0&#39;</span><span class="p">,</span>
+                      <span class="n">help</span><span class="o">=</span><span class="s1">&#39;input FOM (File Organization Model). Decides &#39;</span>
+                      <span class="s1">&#39;which files and direrctories layout for the output &#39;</span>
+                      <span class="s1">&#39;data. Generally &quot;morphologist-bids-1.0&quot; or &#39;</span>
+                      <span class="s1">&#39;&quot;morphologist-auto-nonoverlap-1.0&quot;. Default: &#39;</span>
+                      <span class="s1">&#39;&quot;morphologist-bids-1.0&quot;&#39;</span><span class="p">)</span>
+    <span class="n">group1</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s1">&#39;--params&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;paramsfile&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                      <span class="n">help</span><span class="o">=</span><span class="s1">&#39;specify a file containing commandline parameters. &#39;</span>
+                      <span class="s1">&#39;The file will contain arguments for this commandline &#39;</span>
+                      <span class="s1">&#39;(argv): it is an alternative to providing them here. &#39;</span>
+                      <span class="s1">&#39;It can be useful to reuse parameters, or when the &#39;</span>
+                      <span class="s1">&#39;parameters are too long (in a large iteration, &#39;</span>
+                      <span class="s1">&#39;typically). The file syntax is one line per parameter, &#39;</span>
+                      <span class="s1">&#39;with no further parsing. It will be processed after &#39;</span>
+                      <span class="s1">&#39;all the current commandline arguments, not right now &#39;</span>
+                      <span class="s1">&#39;as the argument appears. But if a parameter has &#39;</span>
+                      <span class="s1">&#39;already been set (via commandline), it will not be &#39;</span>
+                      <span class="s1">&#39;replaced: first set arguments have priority. If the &#39;</span>
+                      <span class="s1">&#39;params file itself contains a --params parameter, &#39;</span>
+                      <span class="s1">&#39;then another file will be read afterwards, and so on.&#39;</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_option_group</span><span class="p">(</span><span class="n">group1</span><span class="p">)</span>
 
     <span class="n">group2</span> <span class="o">=</span> <span class="n">OptionGroup</span><span class="p">(</span><span class="n">parser</span><span class="p">,</span> <span class="s1">&#39;Processing&#39;</span><span class="p">,</span>
@@ -515,31 +574,55 @@
     <span class="n">parser</span><span class="o">.</span><span class="n">disable_interspersed_args</span><span class="p">()</span>
     <span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
+    <span class="k">while</span> <span class="n">options</span><span class="o">.</span><span class="n">paramsfile</span><span class="p">:</span>
+        <span class="n">pfile</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">paramsfile</span>
+        <span class="n">options</span><span class="o">.</span><span class="n">paramsfile</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">pfile</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">new_argv</span> <span class="o">=</span> <span class="p">[</span><span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()]</span>
+        <span class="n">new_options</span><span class="p">,</span> <span class="n">new_args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">new_argv</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">new_options</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+                <span class="nb">setattr</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+        <span class="n">args</span> <span class="o">+=</span> <span class="n">new_args</span>
+
+    <span class="n">engine</span> <span class="o">=</span> <span class="n">capsul_engine</span><span class="p">()</span>
+    <span class="n">engine</span><span class="o">.</span><span class="n">load_modules</span><span class="p">([</span><span class="s1">&#39;fom&#39;</span><span class="p">,</span> <span class="s1">&#39;axon&#39;</span><span class="p">])</span>
+    <span class="n">study_config</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">study_config</span>
+
     <span class="k">if</span> <span class="n">options</span><span class="o">.</span><span class="n">config</span><span class="p">:</span>
-        <span class="n">engine</span> <span class="o">=</span> <span class="n">capsul_engine</span><span class="p">()</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">options</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">config_file</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">config</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">options</span><span class="o">.</span><span class="n">config</span> <span class="o">==</span> <span class="s1">&#39;axon&#39;</span><span class="p">:</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mkstemp</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;capsul_conf&#39;</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="s1">&#39;.json&#39;</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;axon-runprocess&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;capsul://capsul.engine.write_engine_config&#39;</span><span class="p">,</span>
+                    <span class="n">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+            <span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+            <span class="n">config_file</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">yaml</span><span class="p">:</span>
                 <span class="n">conf</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">SafeLoader</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">conf</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">tmp</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
         <span class="k">for</span> <span class="n">env</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">conf</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="n">engine</span><span class="o">.</span><span class="n">import_configs</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
-        <span class="n">study_config</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">study_config</span>
     <span class="k">elif</span> <span class="n">options</span><span class="o">.</span><span class="n">studyconfig</span><span class="p">:</span>
-        <span class="n">study_config</span> <span class="o">=</span> <span class="n">StudyConfig</span><span class="p">(</span>
-            <span class="n">modules</span><span class="o">=</span><span class="n">StudyConfig</span><span class="o">.</span><span class="n">default_modules</span>
-                <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;FomConfig&#39;</span><span class="p">,</span> <span class="s1">&#39;BrainVISAConfig&#39;</span><span class="p">])</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">options</span><span class="o">.</span><span class="n">studyconfig</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">yaml</span><span class="p">:</span>
                 <span class="n">scdict</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">SafeLoader</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">scdict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
         <span class="n">study_config</span><span class="o">.</span><span class="n">set_study_configuration</span><span class="p">(</span><span class="n">scdict</span><span class="p">)</span>
+        <span class="n">engine</span> <span class="o">=</span> <span class="n">study_config</span><span class="o">.</span><span class="n">engine</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">study_config</span> <span class="o">=</span> <span class="n">StudyConfig</span><span class="p">(</span>
             <span class="n">modules</span><span class="o">=</span><span class="n">StudyConfig</span><span class="o">.</span><span class="n">default_modules</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;FomConfig&#39;</span><span class="p">])</span>
         <span class="n">study_config</span><span class="o">.</span><span class="n">read_configuration</span><span class="p">()</span>
         <span class="n">study_config</span><span class="o">.</span><span class="n">use_fom</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">engine</span> <span class="o">=</span> <span class="n">study_config</span><span class="o">.</span><span class="n">engine</span>
 
     <span class="k">if</span> <span class="n">options</span><span class="o">.</span><span class="n">input_directory</span><span class="p">:</span>
         <span class="n">study_config</span><span class="o">.</span><span class="n">input_directory</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">input_directory</span>
@@ -555,6 +638,13 @@
         <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">keep_succeded_workflow</span>
     <span class="n">study_config</span><span class="o">.</span><span class="n">somaworkflow_keep_failed_workflows</span> \
         <span class="o">=</span> <span class="ow">not</span> <span class="n">options</span><span class="o">.</span><span class="n">delete_failed_workflow</span>
+
+    <span class="k">with</span> <span class="n">engine</span><span class="o">.</span><span class="n">settings</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s1">&#39;fom&#39;</span><span class="p">,</span> <span class="s1">&#39;global&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">options</span><span class="o">.</span><span class="n">input_fom</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">config</span><span class="o">.</span><span class="n">input_fom</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">input_fom</span>
+        <span class="k">if</span> <span class="n">options</span><span class="o">.</span><span class="n">output_fom</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">config</span><span class="o">.</span><span class="n">output_fom</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">output_fom</span>
 
     <span class="n">kwre</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;([a-zA-Z_](\.?[a-zA-Z0-9_])*)\s*=\s*(.*)$&#39;</span><span class="p">)</span>
 
@@ -665,13 +755,13 @@
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -686,8 +776,8 @@
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2023, Populse team &lt;support@brainvisa.info&gt;.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    &#169; Copyright 2025, Populse team &lt;support@brainvisa.info&gt;.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
     </div>
   </body>
 </html>

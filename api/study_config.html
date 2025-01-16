@@ -13,12 +13,12 @@
   <link rel="stylesheet" href="../_static/css/bootstrap-responsive.css"/>
   <link rel="icon" href="../_static/capsul_logo.svg"/>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=f0b81668" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
     
-    <script src="../_static/documentation_options.js?v=4d935f96"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/documentation_options.js?v=983e91d6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     
@@ -84,7 +84,7 @@
 
 
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -254,7 +254,7 @@ a serializable object for <code class="docutils literal notranslate"><span class
 (to raise a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>).</p>
 <p>For example, to support arbitrary iterators, you could
 implement default like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">iterable</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
@@ -346,13 +346,13 @@ and management.</p>
 </dl>
 <p class="rubric">Examples</p>
 <p>Create a temporary memory folder</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">tempfile</span> <span class="kn">import</span> <span class="n">mkdtemp</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">tempfile</span><span class="w"> </span><span class="kn">import</span> <span class="n">mkdtemp</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mem</span> <span class="o">=</span> <span class="n">Memory</span><span class="p">(</span><span class="n">mkdtemp</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>Here we create a callable that can be used to apply an
 fsl.Merge interface to files</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">capsul.process</span> <span class="kn">import</span> <span class="n">get_process_instance</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">capsul.process</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_process_instance</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">nipype_fsl_merge</span> <span class="o">=</span> <span class="n">get_process_instance</span><span class="p">(</span>
 <span class="gp">... </span>   <span class="s2">&quot;nipype.interfaces.fsl.Merge&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fsl_merge</span> <span class="o">=</span> <span class="n">mem</span><span class="o">.</span><span class="n">cache</span><span class="p">(</span><span class="n">nipype_fsl_merge</span><span class="p">)</span>
@@ -402,13 +402,13 @@ It provides an identical API but does not write anything on disk.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="capsul.study_config.memory.file_fingerprint">
-<span class="sig-prename descclassname"><span class="pre">capsul.study_config.memory.</span></span><span class="sig-name descname"><span class="pre">file_fingerprint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">afile</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/capsul/study_config/memory.html#file_fingerprint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#capsul.study_config.memory.file_fingerprint" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">capsul.study_config.memory.</span></span><span class="sig-name descname"><span class="pre">file_fingerprint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/capsul/study_config/memory.html#file_fingerprint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#capsul.study_config.memory.file_fingerprint" title="Link to this definition">¶</a></dt>
 <dd><p>Computes the file fingerprint.</p>
 <p>Do not consider the file content, just the fingerprint (ie. the mtime,
 the size and the file location).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>afile</strong> (<em>string</em>) – the file to process.</p>
+<dd class="field-odd"><p><strong>a_file</strong> (<em>string</em>) – the file to process.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>fingerprint</strong> – the file location, mtime and size.</p>
@@ -675,7 +675,7 @@ configuration file name is either in os.environ[‘CAPSUL_CONFIG’] or
 in “~/.config/capsul/config.json”. The study specific configuration
 file name is either defined in the global configuration or in
 “~/.config/capsul/&lt;study_name&gt;/config.json”.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">capsul.api</span> <span class="kn">import</span> <span class="n">StudyConfig</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capsul.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">StudyConfig</span>
 
 <span class="n">study_config</span> <span class="o">=</span> <span class="n">StudyConfig</span><span class="p">(</span><span class="n">modules</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;SPMConfig&#39;</span><span class="p">,</span> <span class="s1">&#39;FomConfig&#39;</span><span class="p">])</span>
 <span class="c1"># or:</span>
@@ -929,8 +929,8 @@ initialization.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>config_module_name</strong> (<em>Name</em><em> of </em><em>the module to load</em><em> (</em><em>e.g. &quot;FSLConfig&quot;</em><em>)</em><em>.</em>) – </p></li>
-<li><p><strong>config</strong> (<em>dictionary containing the configuration</em><em> of </em><em>the study.</em>) – </p></li>
+<li><p><strong>config_module_name</strong> (<em>Name</em><em> of </em><em>the module to load</em><em> (</em><em>e.g. &quot;FSLConfig&quot;</em><em>)</em><em>.</em>)</p></li>
+<li><p><strong>config</strong> (<em>dictionary containing the configuration</em><em> of </em><em>the study.</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -1446,11 +1446,11 @@ user traits between instances.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="capsul.study_config.config_modules.somaworkflow_config.SomaWorkflowConfig">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">capsul.study_config.config_modules.somaworkflow_config.</span></span><span class="sig-name descname"><span class="pre">SomaWorkflowConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">study_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">configuration</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/capsul/study_config/config_modules/somaworkflow_config.html#SomaWorkflowConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#capsul.study_config.config_modules.somaworkflow_config.SomaWorkflowConfig" title="Link to this definition">¶</a></dt>
-<dd><p>Configuration module for <a class="reference external" href="http://brainvisa.info/soma-workflow/sphinx/index.html">Soma-Workflow</a></p>
+<dd><p>Configuration module for <a class="extlink-somaworkflow reference external" href="https://brainvisa.info/soma-workflow/sphinx/index.html">Soma-Workflow</a></p>
 <p>Stores configuration options which are not part of Soma-Workflow own
 configuration, and used to run workflows from CAPSUL pipelines.</p>
 <p>The configuration module may also store connected Soma-Workflow
-<a class="reference external" href="http://brainvisa.info/soma-workflow/sphinx/client_API.html">WorkflowController</a> objects to allow
+<a class="extlink-somaworkflow reference external" href="https://brainvisa.info/soma-workflow/sphinx/client_API.html">WorkflowController</a> objects to allow
 monitoring and submitting workflows.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="capsul.study_config.config_modules.somaworkflow_config.SomaWorkflowConfig.use_soma_workflow">
@@ -1563,7 +1563,7 @@ reconnection.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="http://brainvisa.info/soma-workflow/sphinx/client_API.html">WorkflowController</a> object</p>
+<dd class="field-even"><p><a class="extlink-somaworkflow reference external" href="https://brainvisa.info/soma-workflow/sphinx/client_API.html">WorkflowController</a> object</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1572,7 +1572,7 @@ reconnection.</p></li>
 <dt class="sig sig-object py" id="id24">
 <span class="sig-name descname"><span class="pre">disconnect_resource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resource_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/capsul/study_config/config_modules/somaworkflow_config.html#SomaWorkflowConfig.disconnect_resource"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id24" title="Link to this definition">¶</a></dt>
 <dd><p>Disconnect a connected
-<a class="reference external" href="http://brainvisa.info/soma-workflow/sphinx/client_API.html">WorkflowController</a> and removes it
+<a class="extlink-somaworkflow reference external" href="https://brainvisa.info/soma-workflow/sphinx/client_API.html">WorkflowController</a> and removes it
 from the internal list</p>
 </dd></dl>
 
@@ -1586,7 +1586,7 @@ local host id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>resource_id</strong> (<a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em> (</em><em>optional</em><em>)</em>) – </p></li>
+<li><p><strong>resource_id</strong> (<a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em> (</em><em>optional</em><em>)</em>)</p></li>
 <li><p><strong>set_it</strong> (<a class="reference external" href="https://docs.python.org/3.9/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em> (</em><em>optional</em><em>)</em>) – if True, the computed resource id will be set as the current
 resource in the somaworkflow_computing_resource trait value.</p></li>
 </ul>
@@ -1601,7 +1601,7 @@ resource in the somaworkflow_computing_resource trait value.</p></li>
 <dt class="sig sig-object py" id="id26">
 <span class="sig-name descname"><span class="pre">get_workflow_controller</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resource_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/capsul/study_config/config_modules/somaworkflow_config.html#SomaWorkflowConfig.get_workflow_controller"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id26" title="Link to this definition">¶</a></dt>
 <dd><p>Get a connected
-<a class="reference external" href="http://brainvisa.info/soma-workflow/sphinx/client_API.html">WorkflowController</a> for the given
+<a class="extlink-somaworkflow reference external" href="https://brainvisa.info/soma-workflow/sphinx/client_API.html">WorkflowController</a> for the given
 resource</p>
 </dd></dl>
 
@@ -1621,9 +1621,9 @@ persistent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>resource_id</strong> (<a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em> (</em><em>optional</em><em>)</em>) – </p></li>
-<li><p><strong>password</strong> (<a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em> (</em><em>optional</em><em>)</em>) – </p></li>
-<li><p><strong>rsa_key_password</strong> (<a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em> (</em><em>optional</em><em>)</em>) – </p></li>
+<li><p><strong>resource_id</strong> (<a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em> (</em><em>optional</em><em>)</em>)</p></li>
+<li><p><strong>password</strong> (<a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em> (</em><em>optional</em><em>)</em>)</p></li>
+<li><p><strong>rsa_key_password</strong> (<a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em> (</em><em>optional</em><em>)</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -1677,7 +1677,7 @@ on startup. This method does nothing but can be overridden by modules.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
   <div>
     <h3><a href="../index.html">Table of Contents</a></h3>
@@ -1946,7 +1946,7 @@ on startup. This method does nothing but can be overridden by modules.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -1960,8 +1960,8 @@ on startup. This method does nothing but can be overridden by modules.</p>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2023, Populse team &lt;support@brainvisa.info&gt;.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    &#169; Copyright 2025, Populse team &lt;support@brainvisa.info&gt;.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
     </div>
   </body>
 </html>

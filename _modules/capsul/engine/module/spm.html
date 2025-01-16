@@ -12,12 +12,12 @@
   <link rel="stylesheet" href="../../../../_static/css/bootstrap-responsive.css"/>
   <link rel="icon" href="../../../../_static/capsul_logo.svg"/>
 
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=f0b81668" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=fd3f3429" />
     
-    <script src="../../../../_static/documentation_options.js?v=4d935f96"></script>
-    <script src="../../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../../_static/documentation_options.js?v=983e91d6"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     
@@ -83,7 +83,7 @@
 
 
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -106,11 +106,11 @@
             
   <h1>Source code for capsul.engine.module.spm</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">absolute_import</span>
 
-<span class="kn">from</span> <span class="nn">capsul</span> <span class="kn">import</span> <span class="n">engine</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">six</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">capsul</span><span class="w"> </span><span class="kn">import</span> <span class="n">engine</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">six</span>
 
 <span class="c1">#import glob</span>
 <span class="c1">#import os.path as osp</span>
@@ -123,7 +123,7 @@
 <span class="c1">#from . import matlab</span>
     
 
-<span class="k">def</span> <span class="nf">init_settings</span><span class="p">(</span><span class="n">capsul_engine</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">init_settings</span><span class="p">(</span><span class="n">capsul_engine</span><span class="p">):</span>
     <span class="k">with</span> <span class="n">capsul_engine</span><span class="o">.</span><span class="n">settings</span> <span class="k">as</span> <span class="n">settings</span><span class="p">:</span>
         <span class="n">settings</span><span class="o">.</span><span class="n">ensure_module_fields</span><span class="p">(</span><span class="s1">&#39;spm&#39;</span><span class="p">,</span>
             <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;directory&#39;</span><span class="p">,</span>
@@ -139,7 +139,7 @@
             <span class="p">])</span>
 
 
-<span class="k">def</span> <span class="nf">config_dependencies</span><span class="p">(</span><span class="n">config</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">config_dependencies</span><span class="p">(</span><span class="n">config</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;matlab&#39;</span><span class="p">:</span> <span class="s1">&#39;any&#39;</span><span class="p">}</span>
 
 <span class="c1">#def set_environ(config, environ):</span>
@@ -241,7 +241,7 @@
 
 <div class="viewcode-block" id="activate_configurations">
 <a class="viewcode-back" href="../../../../api/engine.html#capsul.engine.module.spm.activate_configurations">[docs]</a>
-<span class="k">def</span> <span class="nf">activate_configurations</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">activate_configurations</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Activate the SPM module (set env variables) from the global configurations,</span>
 <span class="sd">    in order to use them via :mod:`capsul.in_context.spm` functions</span>
@@ -271,7 +271,7 @@
 
 <div class="viewcode-block" id="check_notably_invalid_config">
 <a class="viewcode-back" href="../../../../api/engine.html#capsul.engine.module.spm.check_notably_invalid_config">[docs]</a>
-<span class="k">def</span> <span class="nf">check_notably_invalid_config</span><span class="p">(</span><span class="n">conf</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">check_notably_invalid_config</span><span class="p">(</span><span class="n">conf</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Checks if the given module config is obviously invalid, for instance if a mandatory path is not filled</span>
 
@@ -292,16 +292,16 @@
 
 <div class="viewcode-block" id="edition_widget">
 <a class="viewcode-back" href="../../../../api/engine.html#capsul.engine.module.spm.edition_widget">[docs]</a>
-<span class="k">def</span> <span class="nf">edition_widget</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">environment</span><span class="p">,</span> <span class="n">config_id</span><span class="o">=</span><span class="s1">&#39;any&#39;</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">edition_widget</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">environment</span><span class="p">,</span> <span class="n">config_id</span><span class="o">=</span><span class="s1">&#39;any&#39;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39; Edition GUI for SPM config - see</span>
 <span class="sd">    :class:`~capsul.qt_gui.widgets.settings_editor.SettingsEditor`</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="kn">from</span> <span class="nn">soma.qt_gui.controller_widget</span> <span class="kn">import</span> <span class="n">ScrollControllerWidget</span>
-    <span class="kn">from</span> <span class="nn">soma.controller</span> <span class="kn">import</span> <span class="n">Controller</span>
-    <span class="kn">import</span> <span class="nn">types</span>
-    <span class="kn">import</span> <span class="nn">traits.api</span> <span class="k">as</span> <span class="nn">traits</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">soma.qt_gui.controller_widget</span><span class="w"> </span><span class="kn">import</span> <span class="n">ScrollControllerWidget</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">soma.controller</span><span class="w"> </span><span class="kn">import</span> <span class="n">Controller</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">types</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">traits.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">traits</span>
 
-    <span class="k">def</span> <span class="nf">validate_config</span><span class="p">(</span><span class="n">widget</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate_config</span><span class="p">(</span><span class="n">widget</span><span class="p">):</span>
         <span class="n">widget</span><span class="o">.</span><span class="n">update_controller</span><span class="p">()</span>
         <span class="n">controller</span> <span class="o">=</span> <span class="n">widget</span><span class="o">.</span><span class="n">controller_widget</span><span class="o">.</span><span class="n">controller</span>
         <span class="k">with</span> <span class="n">widget</span><span class="o">.</span><span class="n">engine</span><span class="o">.</span><span class="n">settings</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
@@ -390,13 +390,13 @@
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -412,8 +412,8 @@
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2023, Populse team &lt;support@brainvisa.info&gt;.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    &#169; Copyright 2025, Populse team &lt;support@brainvisa.info&gt;.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
     </div>
   </body>
 </html>

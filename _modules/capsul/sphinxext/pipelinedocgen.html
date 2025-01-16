@@ -12,12 +12,12 @@
   <link rel="stylesheet" href="../../../_static/css/bootstrap-responsive.css"/>
   <link rel="icon" href="../../../_static/capsul_logo.svg"/>
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=f0b81668" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
     
-    <script src="../../../_static/documentation_options.js?v=4d935f96"></script>
-    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/documentation_options.js?v=983e91d6"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     
@@ -83,7 +83,7 @@
 
 
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -105,25 +105,25 @@
             
   <h1>Source code for capsul.sphinxext.pipelinedocgen</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">print_function</span>
 
 <span class="c1"># System import</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">import</span> <span class="nn">six</span>
-<span class="kn">from</span> <span class="nn">six.moves</span> <span class="kn">import</span> <span class="nb">range</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">absolute_import</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">six</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">six.moves</span><span class="w"> </span><span class="kn">import</span> <span class="nb">range</span>
 
 <span class="c1"># Define logger</span>
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span>
 
 <span class="c1"># Capsul import</span>
-<span class="kn">from</span> <span class="nn">capsul.api</span> <span class="kn">import</span> <span class="n">get_process_instance</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">capsul.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_process_instance</span>
 
 
 <div class="viewcode-block" id="PipelineHelpWriter">
 <a class="viewcode-back" href="../../../api/sphinxext.html#capsul.sphinxext.pipelinedocgen.PipelineHelpWriter">[docs]</a>
-<span class="k">class</span> <span class="nc">PipelineHelpWriter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PipelineHelpWriter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Class for automatic generation of pipeline API documentations</span>
 <span class="sd">    in Sphinx-parsable reST format.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -131,7 +131,7 @@
     <span class="c1"># Only separating first two levels</span>
     <span class="n">rst_section_levels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;~&#39;</span><span class="p">,</span> <span class="s1">&#39;^&#39;</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pipelines</span><span class="p">,</span> <span class="n">rst_extension</span><span class="o">=</span><span class="s2">&quot;.rst&quot;</span><span class="p">,</span> <span class="n">short_names</span><span class="o">=</span><span class="p">{}):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pipelines</span><span class="p">,</span> <span class="n">rst_extension</span><span class="o">=</span><span class="s2">&quot;.rst&quot;</span><span class="p">,</span> <span class="n">short_names</span><span class="o">=</span><span class="p">{}):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; Initialize package for parsing</span>
 
 <span class="sd">        Parameters</span>
@@ -149,7 +149,7 @@
 
 <div class="viewcode-block" id="PipelineHelpWriter.generate_api_doc">
 <a class="viewcode-back" href="../../../api/sphinxext.html#capsul.sphinxext.pipelinedocgen.PipelineHelpWriter.generate_api_doc">[docs]</a>
-    <span class="k">def</span> <span class="nf">generate_api_doc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">generate_api_doc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; Make autodoc documentation for a pipeline python module</span>
 
 <span class="sd">        Parameters</span>
@@ -217,7 +217,7 @@
 
 <div class="viewcode-block" id="PipelineHelpWriter.write_api_docs">
 <a class="viewcode-back" href="../../../api/sphinxext.html#capsul.sphinxext.pipelinedocgen.PipelineHelpWriter.write_api_docs">[docs]</a>
-    <span class="k">def</span> <span class="nf">write_api_docs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outdir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">returnrst</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">write_api_docs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outdir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">returnrst</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; Generate API reST files.</span>
 
 <span class="sd">        Parameters</span>
@@ -287,7 +287,7 @@
 
 <div class="viewcode-block" id="PipelineHelpWriter.get_short_name">
 <a class="viewcode-back" href="../../../api/sphinxext.html#capsul.sphinxext.pipelinedocgen.PipelineHelpWriter.get_short_name">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_short_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_short_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a short file name prefix for module/process in the</span>
 <span class="sd">        short_names dict. Used to build &quot;reasonably short&quot; path/file names.</span>
@@ -308,7 +308,7 @@
 
 <div class="viewcode-block" id="PipelineHelpWriter.write_index">
 <a class="viewcode-back" href="../../../api/sphinxext.html#capsul.sphinxext.pipelinedocgen.PipelineHelpWriter.write_index">[docs]</a>
-    <span class="k">def</span> <span class="nf">write_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outdir</span><span class="p">,</span> <span class="n">froot</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="n">relative_to</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">write_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outdir</span><span class="p">,</span> <span class="n">froot</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="n">relative_to</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                     <span class="n">rst_extension</span><span class="o">=</span><span class="s2">&quot;.rst&quot;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; Make a reST API index file from the list of written files</span>
 
@@ -392,7 +392,7 @@
 
 <div class="viewcode-block" id="PipelineHelpWriter.write_main_index">
 <a class="viewcode-back" href="../../../api/sphinxext.html#capsul.sphinxext.pipelinedocgen.PipelineHelpWriter.write_main_index">[docs]</a>
-    <span class="k">def</span> <span class="nf">write_main_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outdir</span><span class="p">,</span> <span class="n">module_name</span><span class="p">,</span> <span class="n">root_module_name</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">write_main_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outdir</span><span class="p">,</span> <span class="n">module_name</span><span class="p">,</span> <span class="n">root_module_name</span><span class="p">,</span>
                          <span class="n">froot</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="n">rst_extension</span><span class="o">=</span><span class="s2">&quot;.rst&quot;</span><span class="p">,</span>
                          <span class="n">have_usecases</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; Make a reST API index file for the module</span>
@@ -492,13 +492,13 @@
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -513,8 +513,8 @@
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2023, Populse team &lt;support@brainvisa.info&gt;.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    &#169; Copyright 2025, Populse team &lt;support@brainvisa.info&gt;.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
     </div>
   </body>
 </html>
