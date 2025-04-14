@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=f0b81668" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
     
-    <script src="../../../_static/documentation_options.js?v=983e91d6"></script>
+    <script src="../../../_static/documentation_options.js?v=0a414f3d"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -147,9 +147,6 @@
 <span class="sd">:func:`is_node_enabled`</span>
 <span class="sd">-----------------------</span>
 <span class="sd">&#39;&#39;&#39;</span>
-
-<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">print_function</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">absolute_import</span>
 
 <span class="c1"># System import</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
@@ -1431,7 +1428,20 @@
             <span class="k">except</span> <span class="n">traits</span><span class="o">.</span><span class="n">TraitError</span><span class="p">:</span>
                 <span class="c1"># This case happen when the trait type is date, time or datetime</span>
                 <span class="c1"># Couldn&#39;t find an other solution for now</span>
-                <span class="nb">setattr</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">trait_name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">trait_value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">traits</span><span class="o">.</span><span class="n">Undefined</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+                    <span class="n">t</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">trait</span><span class="p">(</span><span class="n">trait_name</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">trait_type</span><span class="p">,</span> <span class="n">traits</span><span class="o">.</span><span class="n">Date</span><span class="p">):</span>
+                        <span class="n">trait_value</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">trait_value</span><span class="p">)</span>
+                    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">trait_type</span><span class="p">,</span> <span class="n">traits</span><span class="o">.</span><span class="n">Time</span><span class="p">):</span>
+                        <span class="n">trait_value</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">trait_value</span><span class="p">)</span>
+                    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">trait_type</span><span class="p">,</span> <span class="n">traits</span><span class="o">.</span><span class="n">Datetime</span><span class="p">):</span>
+                        <span class="n">trait_value</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">trait_value</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">trait_value</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="nb">setattr</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">trait_name</span><span class="p">,</span> <span class="n">trait_value</span><span class="p">)</span>
+                <span class="k">except</span> <span class="n">traits</span><span class="o">.</span><span class="n">TraitError</span><span class="p">:</span>
+                    <span class="nb">setattr</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">trait_name</span><span class="p">,</span> <span class="n">traits</span><span class="o">.</span><span class="n">Undefined</span><span class="p">)</span>
 
         <span class="n">pipeline</span><span class="o">.</span><span class="n">update_nodes_and_plugs_activation</span><span class="p">()</span></div>
 

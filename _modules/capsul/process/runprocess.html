@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=f0b81668" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
     
-    <script src="../../../_static/documentation_options.js?v=983e91d6"></script>
+    <script src="../../../_static/documentation_options.js?v=0a414f3d"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -168,6 +168,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">capsul.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">capsul_engine</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">capsul.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">capsul.attributes.completion_engine</span><span class="w"> </span><span class="kn">import</span> <span class="n">ProcessCompletionEngine</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">soma.qt_gui</span><span class="w"> </span><span class="kn">import</span> <span class="n">qt_backend</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os.path</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">osp</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
@@ -403,6 +404,9 @@
 <span class="w">    </span><span class="sd">&#39;&#39;&#39; Run the :mod:`capsul.process.runprocess` module as a commandline</span>
 <span class="sd">    &#39;&#39;&#39;</span>
 
+    <span class="c1"># disable any GUI</span>
+    <span class="n">qt_backend</span><span class="o">.</span><span class="n">set_headless</span><span class="p">(</span><span class="n">needs_opengl</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
     <span class="n">usage</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;Usage: python -m capsul [options] processname [arg1] [arg2] ...</span>
 <span class="s1">    [argx=valuex] [argy=valuey] ...</span>
 
@@ -463,16 +467,14 @@
                       <span class="s1">&#39;commandline nor study configfile, taken as the same as &#39;</span>
                       <span class="s1">&#39;input.&#39;</span><span class="p">)</span>
     <span class="n">group1</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s1">&#39;--if&#39;</span><span class="p">,</span> <span class="s1">&#39;--input-fom&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;input_fom&#39;</span><span class="p">,</span>
-                      <span class="n">default</span><span class="o">=</span><span class="s1">&#39;morphologist-bids-1.0&#39;</span><span class="p">,</span>
                       <span class="n">help</span><span class="o">=</span><span class="s1">&#39;input FOM (File Organization Model). Decides &#39;</span>
-                      <span class="s1">&#39;which files and direrctories layout for the input &#39;</span>
+                      <span class="s1">&#39;which files and directories layout for the input &#39;</span>
                       <span class="s1">&#39;data. Generally &quot;morphologist-bids-1.0&quot; or &#39;</span>
                       <span class="s1">&#39;&quot;morphologist-auto-nonoverlap-1.0&quot;. Default: &#39;</span>
                       <span class="s1">&#39;&quot;morphologist-bids-1.0&quot;&#39;</span><span class="p">)</span>
     <span class="n">group1</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s1">&#39;--of&#39;</span><span class="p">,</span> <span class="s1">&#39;--output-fom&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;output_fom&#39;</span><span class="p">,</span>
-                      <span class="n">default</span><span class="o">=</span><span class="s1">&#39;morphologist-bids-1.0&#39;</span><span class="p">,</span>
                       <span class="n">help</span><span class="o">=</span><span class="s1">&#39;input FOM (File Organization Model). Decides &#39;</span>
-                      <span class="s1">&#39;which files and direrctories layout for the output &#39;</span>
+                      <span class="s1">&#39;which files and directories layout for the output &#39;</span>
                       <span class="s1">&#39;data. Generally &quot;morphologist-bids-1.0&quot; or &#39;</span>
                       <span class="s1">&#39;&quot;morphologist-auto-nonoverlap-1.0&quot;. Default: &#39;</span>
                       <span class="s1">&#39;&quot;morphologist-bids-1.0&quot;&#39;</span><span class="p">)</span>
@@ -490,6 +492,18 @@
                       <span class="s1">&#39;replaced: first set arguments have priority. If the &#39;</span>
                       <span class="s1">&#39;params file itself contains a --params parameter, &#39;</span>
                       <span class="s1">&#39;then another file will be read afterwards, and so on.&#39;</span><span class="p">)</span>
+    <span class="n">group1</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s1">&#39;--opengl&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                      <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Tell the process loading system that we will &#39;</span>
+                      <span class="s1">&#39;require headless OpenGL, which needs proper setup and &#39;</span>
+                      <span class="s1">&#39;libraries loading tweaks. Without this option, Qt and &#39;</span>
+                      <span class="s1">&#39;potentially graphical modules will be initialized in &#39;</span>
+                      <span class="s1">&#39;headless mode, but there will be no check for a &#39;</span>
+                      <span class="s1">&#39;working OpenGL/GLX implementation. In some cases it &#39;</span>
+                      <span class="s1">&#39;will work anyway, but in others (no X server) OpenGL &#39;</span>
+                      <span class="s1">&#39;will require using a virtual X server (Xvfb) and &#39;</span>
+                      <span class="s1">&#39;possibly loading appropriate OpenGL libraries. This is &#39;</span>
+                      <span class="s1">&#39;not done systematically because of the &#39;</span>
+                      <span class="s1">&#39;overhead it brings.&#39;</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_option_group</span><span class="p">(</span><span class="n">group1</span><span class="p">)</span>
 
     <span class="n">group2</span> <span class="o">=</span> <span class="n">OptionGroup</span><span class="p">(</span><span class="n">parser</span><span class="p">,</span> <span class="s1">&#39;Processing&#39;</span><span class="p">,</span>
@@ -574,6 +588,11 @@
     <span class="n">parser</span><span class="o">.</span><span class="n">disable_interspersed_args</span><span class="p">()</span>
     <span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
+    <span class="n">default_fom</span> <span class="o">=</span> <span class="s1">&#39;morphologist-bids-1.0&#39;</span>
+
+    <span class="k">if</span> <span class="n">options</span><span class="o">.</span><span class="n">opengl</span><span class="p">:</span>
+        <span class="n">qt_backend</span><span class="o">.</span><span class="n">set_headless</span><span class="p">(</span><span class="n">needs_opengl</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
     <span class="k">while</span> <span class="n">options</span><span class="o">.</span><span class="n">paramsfile</span><span class="p">:</span>
         <span class="n">pfile</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">paramsfile</span>
         <span class="n">options</span><span class="o">.</span><span class="n">paramsfile</span> <span class="o">=</span> <span class="kc">None</span>
@@ -643,8 +662,20 @@
         <span class="n">config</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s1">&#39;fom&#39;</span><span class="p">,</span> <span class="s1">&#39;global&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">options</span><span class="o">.</span><span class="n">input_fom</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">config</span><span class="o">.</span><span class="n">input_fom</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">input_fom</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">config</span><span class="o">.</span><span class="n">input_fom</span> <span class="o">=</span> <span class="n">default_fom</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="k">global</span> <span class="n">sys</span>  <span class="c1"># WHY does the global import not work here ??</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Warning: FOM&#39;</span><span class="p">,</span> <span class="n">default_fom</span><span class="p">,</span> <span class="s1">&#39;could not be loaded.&#39;</span><span class="p">,</span>
+                      <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">options</span><span class="o">.</span><span class="n">output_fom</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">config</span><span class="o">.</span><span class="n">output_fom</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">output_fom</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">config</span><span class="o">.</span><span class="n">output_fom</span> <span class="o">=</span> <span class="n">default_fom</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="k">pass</span>
 
     <span class="n">kwre</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;([a-zA-Z_](\.?[a-zA-Z0-9_])*)\s*=\s*(.*)$&#39;</span><span class="p">)</span>
 
@@ -713,6 +744,7 @@
                 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;   &#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 
         <span class="nb">print</span><span class="p">()</span>
+
         <span class="k">del</span> <span class="n">aval</span><span class="p">,</span> <span class="n">attribs</span><span class="p">,</span> <span class="n">completion_engine</span><span class="p">,</span> <span class="n">process</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
